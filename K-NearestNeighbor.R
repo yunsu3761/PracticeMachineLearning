@@ -1,6 +1,4 @@
 
-
-
 #=============================================================================================================================================#
 #                                                  DataSet1 : 신용카드 사기 고객 분류(분류 문제)                                              #
 #                                                                                                                                             #
@@ -74,7 +72,6 @@ table(credit_fraud2$Class)/nrow(credit_fraud2)
 #========= 데이터 분포 확인하기 =========#
 circle_size=(as.integer(credit_fraud2$Class)-1)*10 # 사기건이 너무 적어서 안보임. 포인트 크기를 늘려서 분포 확인
 p6 <- ggplot(credit_fraud2, aes(x = Amount, y = Time, col=Class, size = circle_size)) +  geom_point()
-p6
 
 # 학습 데이터
 train_idx <- sampleBy(~Class, frac=c(0.5,0.5), data=cbind(credit_fraud2$Class,(1:nrow(credit_fraud2))))[,2] #학습 - 0.7 / 평가 - 0.3
